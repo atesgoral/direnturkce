@@ -58,14 +58,32 @@ a:hover {
 }
 .column {
 	width: 240px;
-	margin: 30px;
+	margin: 15px;
+	padding: 14px;
+	border: 1px solid transparent;
 	float: left;
+	transition: background-color 500ms, border-color 500ms, color 500ms;
+}
+.column-active {
+/*	background-color: #ff5c59;
+	color: #092b5a;
+*/
+	background-color: #47375a;
+	border-color: #ff5c59;
+	color: #e0d0f3;
 }
 .box {
 	height: 240px;
 	box-sizing: border-box;
 	border: 1px solid #26a3d9;
 	text-align: center;
+	display: block;
+	color: #bdd8ff;	
+	transition: background-color 250ms, color 250ms;
+}
+.box:hover {
+	background-color: #10497a;
+	color: #bdd8ff;
 }
 .glyph {
 	font-size: 48px;
@@ -139,6 +157,7 @@ a:hover {
 	border-top: 1px solid #26a3d9;
 }
 </style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -162,12 +181,12 @@ a:hover {
 		</div>
 		<div class="clear"></div>
 		<div class="content">
-			<div class="column">
-				<div class="box">
+			<div class="column column-Mi">
+				<a href="#Mi" class="box">
 					<div class="glyph">?</div>
 					<h2 class="symbol">Mi</h2>
 					<div class="caption">Soru Eki</div>
-				</div>
+				</a>
 				<div class="info">
 					<p class="example">
 						<div class="mark wrong">&#x2718;</div>
@@ -189,12 +208,12 @@ a:hover {
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="box">
+			<div class="column column-De">
+				<a href="#De" class="box">
 					<div class="glyph">+</div>
 					<h2 class="symbol">De</h2>
 					<div class="caption">Bağlaç</div>
-				</div>
+				</a>
 				<div class="info">
 					<p class="example">
 						<div class="mark wrong">&#x2718;</div>
@@ -216,12 +235,12 @@ a:hover {
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="box">
+			<div class="column column-Ki">
+				<a href="#Ki" class="box">
 					<div class="glyph">+</div>
 					<h2 class="symbol">Ki</h2>
 					<div class="caption">Bağlaç</div>
-				</div>
+				</a>
 				<div class="info">
 					<p class="example">
 						<div class="mark wrong">&#x2718;</div>
@@ -242,12 +261,12 @@ a:hover {
 					</div>
 				</div>
 			</div>
-			<div class="column">
-				<div class="box">
+			<div class="column column-Aa">
+				<a href="#Aa" class="box">
 					<div class="glyph">!</div>
 					<h2 class="symbol">Aa</h2>
 					<div class="caption">Büyük Harf</div>
-				</div>
+				</a>
 				<div class="info">
 					<p class="example">
 						<div class="mark wrong">&#x2718;</div>
@@ -274,6 +293,23 @@ a:hover {
 			Öğren, öğret, hatırlat! #direnturkce
 		</div>
 	</div>
+	<script>
+	$(function () {
+		$(".column-" + document.location.hash.substr(1)).addClass("column-active");
+
+		$("body").click(function (evt) {
+			$(".column").removeClass("column-active");
+
+			var $box = $(evt.target).closest(".box");
+
+			if ($box.length) {
+				$box.closest(".column").addClass("column-active");
+			} else {
+				document.location.hash = "_";
+			}
+		});
+	});
+	</script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
