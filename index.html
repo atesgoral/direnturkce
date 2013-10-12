@@ -30,14 +30,14 @@ a:hover {
 	max-width: 1200px;
 }
 .header {
-	margin: 30px;
+	margin: 30px 30px 0;
 	min-width: 240px;
 }
 .title {
 	font-size: 30px;
 	line-height: 30px;
 	margin: 0;
-	float: left;
+	display: inline-block;
 }
 .title .proper {
 	display: none;
@@ -48,10 +48,35 @@ a:hover {
 .title a:hover .xlit {
 	display: none;
 }
+.tagline {
+	display: inline-block;
+}
 .social {
 	float: right;
-	height: 20px;
-	padding-top: 10px;
+	height: 30px;
+}
+.social-box {
+	width: 30px;
+	height: 30px;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 30px;
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+	text-decoration: none;
+}
+.facebook {
+	background: #3B5998;
+	color: #fff;
+}
+.twitter {
+	background: #00aced;
+	color: #fff;
+}
+.social-box:hover {
+	background: #a7eff2;
+	color: #092b5a;
 }
 .content {
 	clear: left;
@@ -113,6 +138,7 @@ a:hover {
 	font-size: 24px;
 	font-weight: bold;
 	float: left;
+	display: block;
 }
 .wrong {
 	border-color: #ff5c59;
@@ -126,10 +152,12 @@ a:hover {
 	margin: 0;
 	font-size: 100%;
 	font-weight: normal;
-	margin-left: 40px;	
+	margin-left: 40px;
+	display: block;
 }
 .example-text {
 	margin-left: 40px;	
+	display: block;
 }
 .no-gap {
 	border-bottom: 1px solid #ff5c59;
@@ -156,8 +184,14 @@ a:hover {
 	font-size: 12px;
 	border-top: 1px solid #26a3d9;
 }
+.footer-text {
+	float: left;
+}
+.fb-like {
+	float: right;
+}
 </style>
-<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -175,11 +209,13 @@ a:hover {
 					#dirent<span class="xlit">u</span><span class="proper">ü</span>rk<span class="xlit">c</span><span class="proper">ç</span>e
 				</a>
 			</h1>
+			<div class="tagline">Öğren, öğret, hatırlat!</div>
 			<div class="social">
-				<div class="fb-like" data-href="http://facebook.com/direnturkce" data-height="30" data-colorscheme="dark" data-layout="button_count" data-action="like" data-show-faces="false" data-send="true"></div>
+				<a class="social-box facebook" href="https://www.facebook.com/direnturkce" title="Facebook">f</a>
+				<!--a class="social-box twitter" href="#" title="Twitter">t</a-->
 			</div>
 		</div>
-		<div class="clear"></div>
+		<!--div class="clear"></div-->
 		<div class="content">
 			<div class="column column-Mi">
 				<a href="#Mi" class="box">
@@ -189,14 +225,14 @@ a:hover {
 				</a>
 				<div class="info">
 					<p class="example">
-						<div class="mark wrong">&#x2718;</div>
-						<h3 class="example-title wrong">Yanlış</h3>
-						<div class="example-text">Sen top oynadı<span class="no-gap">nm</span>ı?</div>
+						<span class="mark wrong">&#x2718;</span>
+						<span class="example-title wrong">Yanlış</span>
+						<span class="example-text">Sen top oynadı<span class="no-gap">nm</span>ı?</span>
 					</p>
 					<p class="example">
-						<div class="mark right">&#x2714;</div>
-						<h3 class="example-title right">Doğru</h3>
-						<div class="example-text">Sen top oynadın<span class="gap"> </span>mı?</div>
+						<span class="mark right">&#x2714;</span>
+						<span class="example-title right">Doğru</span>
+						<span class="example-text">Sen top oynadın<span class="gap"> </span>mı?</span>
 					</p>
 					<div class="description">
 						<p>Bu ek gelenekleşmiş olarak ayrı yazılır ve kendisinden önceki kelimenin son ünlüsüne bağlı olarak ünlü uyumlarına uyar:</p>
@@ -216,14 +252,14 @@ a:hover {
 				</a>
 				<div class="info">
 					<p class="example">
-						<div class="mark wrong">&#x2718;</div>
-						<h3 class="example-title wrong">Yanlış</h3>
-						<div class="example-text">Se<span class="no-gap">nd</span>e top oyna bizimle.</div>
+						<span class="mark wrong">&#x2718;</span>
+						<span class="example-title wrong">Yanlış</span>
+						<span class="example-text">Se<span class="no-gap">nd</span>e top oyna bizimle.</span>
 					</p>
 					<p class="example">
-						<div class="mark right">&#x2714;</div>
-						<h3 class="example-title right">Doğru</h3>
-						<div class="example-text">Sen<span class="gap"> </span>de top oyna bizimle.</div>
+						<span class="mark right">&#x2714;</span>
+						<span class="example-title right">Doğru</span>
+						<span class="example-text">Sen<span class="gap"> </span>de top oyna bizimle.</span>
 					</p>
 					<div class="description">
 						<p>Bağlaç olan da / de ayrı yazılır ve kendisinden önceki kelimenin son ünlüsüne bağlı olarak büyük ünlü uyumuna uyar:</p>
@@ -243,14 +279,14 @@ a:hover {
 				</a>
 				<div class="info">
 					<p class="example">
-						<div class="mark wrong">&#x2718;</div>
-						<h3 class="example-title wrong">Yanlış</h3>
-						<div class="example-text">Top oynamadı<span class="no-gap">nk</span>i.</div>
+						<span class="mark wrong">&#x2718;</span>
+						<span class="example-title wrong">Yanlış</span>
+						<span class="example-text">Top oynamadı<span class="no-gap">nk</span>i.</span>
 					</p>
 					<p class="example">
-						<div class="mark right">&#x2714;</div>
-						<h3 class="example-title right">Doğru</h3>
-						<div class="example-text">Top oynamadın<span class="gap"> </span>ki.</div>
+						<span class="mark right">&#x2714;</span>
+						<span class="example-title right">Doğru</span>
+						<span class="example-text">Top oynamadın<span class="gap"> </span>ki.</span>
 					</p>
 					<div class="description">
 						<p>Bağlaç olan ki ayrı yazılır. Şüphe ve pekiştirme göreviyle kullanılan ki sözü de ayrı yazılır:</p>
@@ -269,14 +305,14 @@ a:hover {
 				</a>
 				<div class="info">
 					<p class="example">
-						<div class="mark wrong">&#x2718;</div>
-						<h3 class="example-title wrong">Yanlış</h3>
-						<div class="example-text">HAYDİ TOP OYNA!</div>
+						<span class="mark wrong">&#x2718;</span>
+						<span class="example-title wrong">Yanlış</span>
+						<span class="example-text">HAYDİ TOP OYNA!</span>
 					</p>
 					<p class="example">
-						<div class="mark right">&#x2714;</div>
-						<h3 class="example-title right">Doğru</h3>
-						<div class="example-text">Haydi top oyna!</div>
+						<span class="mark right">&#x2714;</span>
+						<span class="example-title right">Doğru</span>
+						<span class="example-text">Haydi top oyna!</span>
 					</p>
 					<div class="description">
 						<p>Tamamen büyük harflerle yazılmış sözcükler İnternet geleneğinde bağırma olarak algılanır. Kabadır, rahatsız edicidir. Yazılanların önemini vurgulamak için kullanılmaması gerekir. Yazılanların önemi zaten içeriğinden belli olur:</p>
@@ -288,9 +324,11 @@ a:hover {
 			</div>
 		</div>
 		<div class="footer">
+			<div class="footer-text">
 			İçerik hakkında yorumlarınızı <a href="https://www.facebook.com/direnturkce">Facebook sayfasına</a> ekleyebilirsiniz.
 			Ya da doğrudan katkıda bulunmak için <a href="https://github.com/atesgoral/direnturkce">GitHub'a buyurun.</a>
-			Öğren, öğret, hatırlat! #direnturkce
+			</div>
+			<div class="fb-like" data-href="http://facebook.com/direnturkce" data-height="30" data-colorscheme="dark" data-layout="button_count" data-action="like" data-show-faces="false" data-send="true"></div>
 		</div>
 	</div>
 	<script>
